@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int main(int argc, char *argv[]) {
 	
 	int dig1, dig2, dig3, dig4, dig5, dig6, dig7, dig8, dig9, dig10, dig11, soma1, resto1, verificador1, resto2, soma2, verificador2;
@@ -17,12 +16,24 @@ int main(int argc, char *argv[]) {
 	resto1 = soma1 % 11;
 	resto2 = soma2 % 11;
 	
-	if ((resto1 == dig10) && (resto2 == dig11)){ 
-		printf("O CPF e valido");
-		
-	}else{ 
-	 	prinf("O CPF e invalido");
-	}
-	
+    if (resto1 < 2) {
+    	verificador1 = 0;
+    }else {
+        verificador1 = 11 - resto1;
+    }
+
+    if (resto2 < 2) {
+        verificador2 = 0;
+    }else {
+        verificador2 = 11 - resto2;
+    }
+    
+     if ((verificador1 == dig10) && (verificador2 == dig11)) {
+        printf("\nO CPF e valido!\n");
+    }else {
+        printf("\nO CPF e invalido!\n");
+    }
+
+
 	return 0;
 }
